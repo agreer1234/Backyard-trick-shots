@@ -22,8 +22,26 @@ npm run build
 npm run preview
 ```
 
-It is a plain web app, so it runs in a phone browser today. Wrapping it as a
-real installable app is a Capacitor shell around `dist/` when we want one — no
+## Playing on a phone
+
+**The deployed build** — every push to `main` publishes to GitHub Pages at
+<https://agreer1234.github.io/Backyard-trick-shots/>. Open that on your phone.
+Then use **Share → Add to Home Screen** (iOS) or **⋮ → Add to Home screen**
+(Android): it launches fullscreen with no browser chrome, which matters here
+because Safari's toolbars otherwise sit on top of the shoot button.
+
+**From your laptop, over WiFi** — for testing changes before pushing:
+
+```bash
+npm run dev
+```
+
+Vite is configured with `host: true`, so it prints a **Network** URL like
+`http://192.168.1.x:5173/`. Open that on your phone with both devices on the
+same WiFi. Edits reload live on the phone.
+
+It is a plain web app, so it runs in a mobile browser today. Wrapping it as a
+store-installable app is a Capacitor shell around `dist/` when we want one — no
 rewrite required.
 
 ### Controls
