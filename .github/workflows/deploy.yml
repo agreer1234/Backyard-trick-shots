@@ -35,9 +35,12 @@ jobs:
       # `npm run build` typechecks first, so a type error fails the deploy.
       - run: npm run build
 
+      # Reads the repo's existing Pages config. This requires Pages to have
+      # been switched on once, by hand, at
+      #   Settings -> Pages -> Build and deployment -> Source: GitHub Actions
+      # The workflow token cannot enable Pages on a repo where it has never
+      # been configured, so that first toggle is unavoidably manual.
       - uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - uses: actions/upload-pages-artifact@v3
         with:

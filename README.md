@@ -26,6 +26,12 @@ npm run preview
 
 **The deployed build** — every push to `main` publishes to GitHub Pages at
 <https://agreer1234.github.io/Backyard-trick-shots/>. Open that on your phone.
+
+> One-time setup: GitHub Pages has to be switched on by hand before the first
+> deploy can run. Go to **Settings → Pages → Build and deployment** and set
+> **Source** to **GitHub Actions**. A workflow token cannot enable Pages on a
+> repo where it has never been configured, so this first click is manual; after
+> it, every push deploys on its own.
 Then use **Share → Add to Home Screen** (iOS) or **⋮ → Add to Home screen**
 (Android): it launches fullscreen with no browser chrome, which matters here
 because Safari's toolbars otherwise sit on top of the shoot button.
