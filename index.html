@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#8fbf74" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Backyard Trick Shots</title>
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="scene"></canvas>
+
+      <!-- Golden-hour vignette + film grain, purely decorative -->
+      <div class="vignette" aria-hidden="true"></div>
+
+      <!-- Shot feedback banner -->
+      <div id="toast" class="toast" aria-live="polite"></div>
+
+      <!-- Top-left run stats -->
+      <div id="stats" class="stats">
+        <div class="stat">
+          <span class="stat-label">Makes</span>
+          <span class="stat-value" id="stat-makes">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Attempts</span>
+          <span class="stat-value" id="stat-attempts">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Best shot</span>
+          <span class="stat-value" id="stat-best">—</span>
+        </div>
+      </div>
+
+      <!-- Live distance readout while the ball is in the air -->
+      <div id="tracker" class="tracker" aria-hidden="true"></div>
+
+      <!-- Points at the hoop when it is off the edge of the screen -->
+      <div id="hoop-marker" class="hoop-marker" aria-hidden="true">
+        <span class="hoop-arrow" id="hoop-arrow">➤</span>
+        <span class="hoop-dist" id="hoop-dist"></span>
+      </div>
+
+      <!-- Mode switch -->
+      <button id="btn-mode" class="mode-btn" type="button">
+        <span class="mode-icon">🔨</span><span class="mode-text">Build</span>
+      </button>
+
+      <!-- Build-mode palette -->
+      <div id="build-bar" class="build-bar" hidden>
+        <div class="build-scroll" id="build-palette"></div>
+        <div class="build-actions">
+          <button class="chip" id="btn-rotate" type="button">⟳ Rotate</button>
+          <button class="chip" id="btn-raise" type="button">▲ Raise</button>
+          <button class="chip" id="btn-lower" type="button">▼ Lower</button>
+          <button class="chip danger" id="btn-delete" type="button">✕ Remove</button>
+          <button class="chip" id="btn-clear" type="button">Clear all</button>
+        </div>
+        <p class="build-hint" id="build-hint">
+          Pick a piece, then tap the ground to drop it. Tap a placed piece to select it.
+        </p>
+      </div>
+
+      <!-- Play-mode touch controls -->
+      <div id="play-controls" class="play-controls">
+        <div class="stick-zone" id="stick-zone">
+          <div class="stick-base" id="stick-base">
+            <div class="stick-nub" id="stick-nub"></div>
+          </div>
+        </div>
+        <div class="action-cluster">
+          <button class="action secondary" id="btn-board" type="button">
+            <span class="action-glyph">🛹</span><span class="action-label">Ride</span>
+          </button>
+          <button class="action secondary" id="btn-jump" type="button">
+            <span class="action-glyph">⤴</span><span class="action-label">Ollie</span>
+          </button>
+          <button class="action primary" id="btn-shoot" type="button">
+            <span class="action-glyph">🏀</span><span class="action-label">Shoot</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Onboarding card -->
+      <div id="intro" class="intro">
+        <div class="intro-card">
+          <h1>Backyard Trick Shots</h1>
+          <p class="intro-sub">
+            Build something ridiculous. Skate off it. Let the ball go at exactly the right moment.
+          </p>
+          <ul class="intro-keys">
+            <li><b>Move</b><span>Left stick · WASD</span></li>
+            <li><b>Ride / hop off</b><span>🛹 · E</span></li>
+            <li><b>Ollie</b><span>⤴ · Space</span></li>
+            <li><b>Shoot</b><span>🏀 · J or tap</span></li>
+            <li><b>Build</b><span>🔨 top-right</span></li>
+          </ul>
+          <p class="intro-note">
+            You do not have to ride to shoot. Walk up and hoist one, or drop in from the tower —
+            the ball leaves your hands the instant you tap, so timing is the whole game.
+          </p>
+          <button class="intro-go" id="intro-go" type="button">Head outside</button>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
