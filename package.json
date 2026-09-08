@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "playtest:range": "node scripts/shot-range.mjs",
-    "playtest:physics": "node scripts/physics-smoke.mjs"
+    "playtest:physics": "node scripts/physics-smoke.mjs",
+    "build:single": "node scripts/build-singlefile.mjs"
   },
   "dependencies": {
     "three": "^0.169.0"
